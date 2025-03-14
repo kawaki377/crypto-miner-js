@@ -23,13 +23,16 @@
 /* Style the body */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('https://www.example.com/bitcoin-background.jpg');
+    background-image: url('https://www.reuters.com/resizer/v2/HS76UEHVFNN6PE5WYQLO5GOXPM.jpg?auth=0ae3bc7cd0bdcf2c9298bb5f4bd518f3ffef5140bf9a80a153c753785995f7e0');
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Overlay to dim the background */
@@ -40,7 +43,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     z-index: -1;
 }
 
@@ -49,7 +52,7 @@ body::before {
     background-color: var(--header-footer-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     text-align: center;
     max-width: 600px;
     width: 90%;
