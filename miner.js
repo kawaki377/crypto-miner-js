@@ -89,7 +89,7 @@ function mine(blockNumber, transactions, previousHash, prefixZeros) {
             return newHash;
         }
         nonce++;
-        if (nonce % 100000 === 0) {
+        if (nonce % 1000000 === 0) {
             console.log(`Current nonce: ${nonce}, Current hash: ${newHash}`);
         }
     }
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Alice sends 1 BTC to Bob
         `;
         const previousHash = "0000000000000000000000000000000000000000000000000000000000000000";
-        const prefixZeros = 6; // Further increase the difficulty
+        const prefixZeros = 8; // Further increase the difficulty
         const startTime = Date.now();
         console.log(`Starting mining with difficulty: ${prefixZeros}`);
         const newHash = mine(blockNumber, transactions, previousHash, prefixZeros);
