@@ -1,0 +1,11 @@
+{
+  "name": "crypto-miner-js",
+  "version": "1.0.0",
+  "description": "Basic Cryptocurrency Miner in JavaScript for Educational Purposes",
+  "main": "miner.js",
+  "scripts": {
+    "start": "open index.html"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
