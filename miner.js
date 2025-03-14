@@ -86,7 +86,7 @@ function mine(blockNumber, transactions, previousHash, prefixZeros) {
         let newHash = sha256(text);
         if (newHash.startsWith(prefixStr)) {
             console.log(`Successfully mined block with nonce value: ${nonce}`);
-            return newHash;
+            console.log(`New hash: ${newHash}`);
         }
         nonce++;
         if (nonce % 1000000 === 0) {
@@ -108,8 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const prefixZeros = 12; // Increase the difficulty further to last for hours
         const startTime = Date.now();
         console.log(`Starting mining with difficulty: ${prefixZeros}`);
-        const newHash = mine(blockNumber, transactions, previousHash, prefixZeros);
-        const totalTime = (Date.now() - startTime) / 1000;
-        output.textContent = `Mining took: ${totalTime} seconds\nNew hash: ${newHash}`;
+        mine(blockNumber, transactions, previousHash, prefixZeros);
     });
 });
