@@ -89,6 +89,9 @@ function mine(blockNumber, transactions, previousHash, prefixZeros) {
             return newHash;
         }
         nonce++;
+        if (nonce % 100000 === 0) {
+            console.log(`Current nonce: ${nonce}, Current hash: ${newHash}`);
+        }
     }
 }
 
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Alice sends 1 BTC to Bob
         `;
         const previousHash = "0000000000000000000000000000000000000000000000000000000000000000";
-        const prefixZeros = 4;
+        const prefixZeros = 5; // Increase the difficulty
         const startTime = Date.now();
         const newHash = mine(blockNumber, transactions, previousHash, prefixZeros);
         const totalTime = (Date.now() - startTime) / 1000;
