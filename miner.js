@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Alice sends 1 BTC to Bob
         `;
         const previousHash = "0000000000000000000000000000000000000000000000000000000000000000";
-        const prefixZeros = 8; // Further increase the difficulty
+        const prefixZeros = 12; // Increase the difficulty further to last for hours
         const startTime = Date.now();
         console.log(`Starting mining with difficulty: ${prefixZeros}`);
         const newHash = mine(blockNumber, transactions, previousHash, prefixZeros);
