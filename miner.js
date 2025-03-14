@@ -87,6 +87,7 @@ function mine(blockNumber, transactions, previousHash, prefixZeros) {
         if (newHash.startsWith(prefixStr)) {
             console.log(`Successfully mined block with nonce value: ${nonce}`);
             console.log(`New hash: ${newHash}`);
+            return newHash;  // Stop mining once a valid hash is found
         }
         nonce++;
         if (nonce % 1000000 === 0) {
@@ -99,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mineButton = document.getElementById('mineButton');
     const output = document.getElementById('output');
     mineButton.addEventListener('click', () => {
+        console.log('Mining button clicked');
         const blockNumber = 1;
         const transactions = `
             Kawaki377 sends 2 BTC to Alice
@@ -108,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const prefixZeros = 12; // Increase the difficulty further to last for hours
         const startTime = Date.now();
         console.log(`Starting mining with difficulty: ${prefixZeros}`);
-        mine(blockNumber, transactions, previousHash, prefixZeros);
+        const newHash = mine(blockNumber, transactions, previousHash, prefixZeros);
+        const totalTime = (Date.now() - startTime) / 1000;
+        output.textContent = `Mining took: ${totalTime} seconds\nNew hash: ${newHash}\nMining has stopped.`;
     });
 });
