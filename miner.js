@@ -6,7 +6,7 @@ function sha256(ascii) {
     var mathPow = Math.pow;
     var maxWord = mathPow(2, 32);
     var lengthProperty = 'length';
-    var i, j; // Used as a counter across the whole file
+    var i, j;
     var result = '';
 
     var words = [];
@@ -30,18 +30,18 @@ function sha256(ascii) {
         return hash.slice(0, n);
     }
 
-    ascii += '\x80'; // Append Ƈ' bit (plus zero padding)
-    while (ascii[lengthProperty] % 64 - 56) ascii += '\x00'; // More zero padding
+    ascii += '\x80';
+    while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
     for (i = 0; i < ascii[lengthProperty]; i++) {
         j = ascii.charCodeAt(i);
-        if (j >> 8) return; // ASCII check: only accept characters in range 0-255
+        if (j >> 8) return;
         words[i >> 2] |= j << ((3 - i) % 4) * 8;
     }
     words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
     words[words[lengthProperty]] = (asciiBitLength)
 
     for (j = 0; j < words[lengthProperty];) {
-        var w = words.slice(j, j += 16); // The message is expanded into 64 words as part of the iteration
+        var w = words.slice(j, j += 16);
         var oldHash = hash;
         hash = hash.slice(0, 8);
 
@@ -105,8 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
             Alice sends 1 BTC to Bob
         `;
         const previousHash = "0000000000000000000000000000000000000000000000000000000000000000";
-        const prefixZeros = 5; // Increase the difficulty
+        const prefixZeros = 6; // Further increase the difficulty
         const startTime = Date.now();
+        console.log(`Starting mining with difficulty: ${prefixZeros}`);
         const newHash = mine(blockNumber, transactions, previousHash, prefixZeros);
         const totalTime = (Date.now() - startTime) / 1000;
         output.textContent = `Mining took: ${totalTime} seconds\nNew hash: ${newHash}`;
