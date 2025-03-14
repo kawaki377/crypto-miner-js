@@ -1,36 +1,73 @@
+/* Define color variables for easy customization */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #45a049;
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --header-footer-color: #fff;
+    --header-footer-bg-color: #333;
+    --button-bg-color: var(--primary-color);
+    --button-bg-hover-color: var(--secondary-color);
+    --button-text-color: #fff;
+    --output-bg-color: #fafafa;
+    --output-border-color: #ddd;
+}
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
+/* Container for the entire content */
 .container {
-    background-color: #fff;
+    background-color: var(--header-footer-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 600px;
-    width: 100%;
+    width: 90%;
 }
 
+/* Style the header */
+header {
+    background-color: var(--header-footer-bg-color);
+    color: var(--header-footer-color);
+    padding: 10px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Style the heading */
 h1 {
-    color: #555;
+    margin: 0;
+    font-size: 24px;
 }
 
+/* Style the main content area */
+main {
+    padding: 20px;
+}
+
+/* Style the button */
 .button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
     border: none;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin: 20px 0;
     cursor: pointer;
@@ -38,16 +75,27 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
+/* Button hover effect */
 .button:hover {
-    background-color: #45a049;
+    background-color: var(--button-bg-hover-color);
 }
 
+/* Style the output area */
 .output {
-    background-color: #fafafa;
+    background-color: var(--output-bg-color);
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--output-border-color);
     white-space: pre-wrap;
     text-align: left;
     margin-top: 20px;
+}
+
+/* Style the footer */
+footer {
+    background-color: var(--header-footer-bg-color);
+    color: var(--header-footer-color);
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
+    font-size: 14px;
 }
