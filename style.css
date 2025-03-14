@@ -23,12 +23,25 @@
 /* Style the body */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
+    background-image: url('https://www.example.com/bitcoin-background.jpg');
+    background-size: cover;
     color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+/* Overlay to dim the background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 /* Container for the entire content */
@@ -40,6 +53,7 @@ body {
     text-align: center;
     max-width: 600px;
     width: 90%;
+    z-index: 1;
 }
 
 /* Style the header */
